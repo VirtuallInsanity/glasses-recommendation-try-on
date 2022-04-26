@@ -1,8 +1,4 @@
-import numpy as np
 import cv2
-import face_recognition
-import pickle
-import time
 
 
 class Webcam(object):
