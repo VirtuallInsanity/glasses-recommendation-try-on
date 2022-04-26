@@ -4,7 +4,6 @@ import face_recognition
 import face_recognition_models
 import numpy as np
 from scipy import ndimage
-import logging
 
 
 class Webcam_try_on(object):
@@ -36,7 +35,7 @@ class Webcam_try_on(object):
             self.glasses = cv2.imread("glasses/square-red.png", -1)
 
         cuda_check = dlib.DLIB_USE_CUDA
-        logging.warning(f'CUDA init: {cuda_check}')
+        print(f'CUDA init: {cuda_check}')
 
     # Resize an image to a certain width
     def resize(self, img, width):

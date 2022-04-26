@@ -2,6 +2,5 @@ Flask~=2.0.2
 Flask-Uploads~=0.2.1
 dlib~=19.22.0
 numpy~=1.19.5
-logging~=0.4.9.6
 scipy~=1.7.1
 Werkzeug~=2.0.1
