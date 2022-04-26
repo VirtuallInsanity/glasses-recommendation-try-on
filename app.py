@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, request, Response
 from flask_uploads_fix.flask_uploads_fixed import UploadSet, configure_uploads, IMAGES
 
@@ -122,4 +124,5 @@ def try_on_stream():
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='0.0.0.0', port=5000)  # localhost
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)  # localhost
