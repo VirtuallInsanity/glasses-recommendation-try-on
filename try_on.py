@@ -34,8 +34,6 @@ class Webcam_try_on(object):
             print('square-red')
             self.glasses = cv2.imread("glasses/square-red.png", -1)
 
-        cuda_check = dlib.DLIB_USE_CUDA
-        print(f'CUDA init: {cuda_check}')
 
     # Resize an image to a certain width
     def resize(self, img, width):
@@ -67,17 +65,21 @@ class Webcam_try_on(object):
         return np.rad2deg((angle_1 - angle_2) % (2 * np.pi))
 
     def try_on(self, photo=False):
-
+        print('inside try on')
         if photo:
             img = cv2.imread(self.img_path)
         else:
             success, img = self.video.read()
-
+        
+        print('im read')
+        
         img_copy = img.copy()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        print('copy')
 
         try:
-            dets = face_recognition.face_locations(gray, model='cnn')[0]
+            dets = face_recognition.face_locations(gray, model='hog')[0]
+            print('deeets')
 
             x, y, w, h = dets[3], dets[0], dets[1], dets[2]
             dlib_rect = dlib.rectangle(x, y, w, h)
