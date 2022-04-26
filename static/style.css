@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(80, 172, 215, 0.71);
+}
+
+#table {
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+h1, h3 {
+    font-family: 'Muli', sans-serif;
+    text-align: center;
+    margin-top: 12px;
+}
+
+form {
+    position: relative;
+    margin:auto;
+    width: 0;
+    min-width: 230px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+        width: 80%;
+        margin:0 auto;
+        padding:0 20px;
+        font-family: 'Muli', sans-serif;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+    }
