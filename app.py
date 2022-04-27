@@ -37,7 +37,8 @@ def try_on_cam(camera):
         frame = camera.try_on()
         yield b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n'
 
-def try_on_photo(camera):
+
+def try_on_cam_photo(camera):
     print('Trying on photo!')
     frame = camera.try_on(photo=True)
     yield b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n'
@@ -67,7 +68,15 @@ def upload_img():
             print(e)
             print('лицо не найдено, должно быть только одно')  # !!!!
             return render_template('image_load.html')
-        return render_template('best_selection.html', best_matches=best_matches)
+        return render_template('best_selection_photo.html', best_matches=best_matches)
+    else:
+        try:
+            best_matches = comapare(img_path)
+        except Exception as e:
+            print(e)
+            print('лицо не найдено, должно быть только одно')  # !!!!
+            return render_template('image_load.html')
+        return render_template('best_selection_photo.html', best_matches=best_matches)
 
 
 ## for webcam
@@ -110,10 +119,20 @@ def try_on():
     return render_template('try_on.html')
 
 
+@app.route('/try-on-photo', methods=["POST"])
+def try_on_photo():
+    global glasses_type
+    glasses_type = request.form.get('type')
+    print(glasses_type)
+    return render_template('try_on_photo.html')
+
+
 @app.route('/try-on-stream')
 def try_on_stream():
+    global img_path
+    print(img_path)
     if img_path != '':
-        frame = try_on_photo(Webcam_try_on(glasses_type, img_path))
+        frame = try_on_cam_photo(Webcam_try_on(glasses_type, img_path))
         return Response(frame, mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
         print(glasses_type)

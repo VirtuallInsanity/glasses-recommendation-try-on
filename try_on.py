@@ -15,22 +15,22 @@ class Webcam_try_on(object):
         predictor_68_point_model = face_recognition_models.pose_predictor_model_location()
         self.predictor = dlib.shape_predictor(predictor_68_point_model)
 
-        if glasses_type == 'cat-black':
+        if glasses_type == 'кошачий глаз-черные':
             print('cat-black')
             self.glasses = cv2.imread("glasses/cat.png", -1)
-        elif glasses_type == 'narrow-black':
+        elif glasses_type == 'прямоугольные-черные':
             print('narrow-black')
             self.glasses = cv2.imread("glasses/narrow.png", -1)
-        elif glasses_type == 'round-black':
+        elif glasses_type == 'круглые-черные':
             print('round-black')
             self.glasses = cv2.imread("glasses/round.png", -1)
-        elif glasses_type == 'semi-black':
+        elif glasses_type == 'половинчатые-черные':
             print('semi-black')
             self.glasses = cv2.imread("glasses/semi.png", -1)
-        elif glasses_type == 'square-black':
+        elif glasses_type == 'квадратные-черные':
             print('square-black')
             self.glasses = cv2.imread("glasses/square.png", -1)
-        elif glasses_type == 'square-red':
+        elif glasses_type == 'квадратные-красные':
             print('square-red')
             self.glasses = cv2.imread("glasses/square-red.png", -1)
 
@@ -70,16 +70,13 @@ class Webcam_try_on(object):
             img = cv2.imread(self.img_path)
         else:
             success, img = self.video.read()
-        
-        print('im read')
+
         
         img_copy = img.copy()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        print('copy')
 
         try:
             dets = face_recognition.face_locations(gray, model='hog')[0]
-            print('deeets')
 
             x, y, w, h = dets[3], dets[0], dets[1], dets[2]
             dlib_rect = dlib.rectangle(x, y, w, h)
