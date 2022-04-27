@@ -11,7 +11,7 @@
     <div class="form" style="margin-top: 3%;">
     <h1><strong>Виртуальная примерка</strong></h1>
     <br>
-    <img id="bg" src="{{ url_for('try_on_stream') }}" alt="client_with_glasses">
+    <img id="bg" src="{{ url_for('try_on_stream') }}" alt="client_with_glasses" style="max-width: 950px; max-height: 650px;>
     <br>
     <br>
     <form action = "{{ url_for('upload_img') }}" method = "GET">
