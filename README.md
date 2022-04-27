@@ -8,4 +8,4 @@ Later on it's possible to improve recommendating algorithm, try on functionality
 
 # Run this app
 
-
+https://glasses-recommendation-try-on.herokuapp.com/
