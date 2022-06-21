@@ -16,8 +16,9 @@ h1, h3 {
 form {
     position: relative;
     margin:auto;
-    width: 0;
+    /*width: 0;*/
     min-width: 230px;
+    padding-bottom: 7px;
 }
 img {
     display: block;
