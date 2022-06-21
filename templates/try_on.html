@@ -13,9 +13,12 @@
     <br>
     <img id="bg" src="{{ url_for('try_on_stream') }}" alt="client_with_glasses">
     <br>
-    <br>
+
     <form action = "{{ url_for('get_recommendations') }}" method = "GET">
         <input type="submit" class="btn btn-warning" value="Вернуться к другим вариантам">
+    </form>
+    <form>
+        <input type="submit" class="btn btn-info" value="Выбрать данный вариант">
     </form>
     <form action = "{{ url_for('index') }}" method = "GET">
         <input type="submit" class="btn btn-success" value="Вернуться в начало">

@@ -11,11 +11,13 @@
     <div class="form" style="margin-top: 3%;">
     <h1><strong>Виртуальная примерка</strong></h1>
     <br>
-    <img id="bg" src="{{ url_for('try_on_stream') }}" alt="client_with_glasses" style="max-width: 950px; max-height: 650px;>
-    <br>
+    <img id="bg" src="{{ url_for('try_on_stream') }}" alt="client_with_glasses" style="max-width: 950px; max-height: 650px;">
     <br>
     <form action = "{{ url_for('upload_img') }}" method = "GET">
         <input type="submit" class="btn btn-warning" value="Вернуться к другим вариантам">
+    </form>
+    <form>
+        <input type="submit" class="btn btn-info" value="Выбрать данный вариант">
     </form>
     <form action = "{{ url_for('index') }}" method = "GET">
         <input type="submit" class="btn btn-success" value="Вернуться в начало">

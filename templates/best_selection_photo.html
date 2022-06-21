@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th scope="col">Вариант</th>
-                <th scope="col">Подходящесть</th>
+{#                <th scope="col">Подходящесть</th>#}
                 <th scope="col">Виртуальная примерка</th>
             </tr>
         </thead>
@@ -24,7 +24,7 @@
             {% for best_match in best_matches %}
                 <tr>
                     <td>{{ best_match[1] }} </td>
-                    <td>{{ best_match[0] }}</td>
+{#                    <td>{{ best_match[0] }}</td>#}
                     <td>
                         <form method="post" action="{{ url_for('try_on_photo') }}">
                             <button type="submit" class="btn btn-success" name="type" value="{{ best_match[1] }}">Примерить</button>
